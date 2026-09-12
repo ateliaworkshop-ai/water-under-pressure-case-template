@@ -525,6 +525,13 @@ button.secondary:hover{ background: var(--teal-100); }
 .attention-row .tag.coral{ background: var(--coral-bg); color: var(--coral); }
 
 .context-card{ display: flex; flex-direction: column; gap: 10px; }
+.data-status{ display:inline-flex; align-items:center; gap:6px; font-size:11px; font-weight:600; color:var(--ink-soft); white-space:nowrap; }
+.data-status i{ width:7px; height:7px; border-radius:50%; background:#d99a35; display:inline-block; }
+.source-block{ display:flex; flex-direction:column; gap:3px; padding:12px; border:1px solid var(--line); border-radius:10px; background:#f8faf9; }
+.source-block small{ font-size:10px; letter-spacing:.12em; font-weight:700; color:var(--ink-soft); }
+.source-block strong{ font-size:12px; color:var(--ink); }
+.source-block span{ font-size:11px; color:var(--ink-soft); }
+.source-block a{ margin-top:4px; font-size:11px; font-weight:700; color:var(--teal); }
 
 .context-label{ font-size: 13px; font-weight: 600; color: var(--ink); }
 
