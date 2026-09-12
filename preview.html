@@ -1,0 +1,1343 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AquaGuard | Hospital Water Safety</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap" rel="stylesheet" />
+    <style>/* ===========================================================
+   AquaGuard — Hospital Water Safety
+   Design language: clinical calm. Deep teal sidebar against a
+   pale aqua-grey workspace; Fraunces for anything that needs to
+   feel like a decision, DM Sans for everything operational.
+   =========================================================== */
+
+:root{
+  --teal-950: #0d2326;
+  --teal-900: #123033;
+  --teal-800: #17454a;
+  --teal-700: #1f5e63;
+  --teal-600: #24787d;
+  --teal-500: #2f9298;
+  --teal-100: #dcefef;
+  --teal-50:  #f2f9f9;
+
+  --ink:      #142221;
+  --ink-soft: #4d605f;
+  --ink-faint:#8ba09e;
+
+  --paper:    #fbfbf9;
+  --canvas:   #eef4f3;
+  --line:     #dbe6e4;
+  --line-soft:#e8f0ef;
+
+  --amber:    #b9791f;
+  --amber-bg: #fbf1de;
+  --coral:    #c15a49;
+  --coral-bg: #fbeae6;
+  --blue:     #3a6690;
+  --blue-bg:  #e7eef5;
+  --good:     #2c7a5e;
+  --good-bg:  #e3f2ea;
+
+  --radius-lg: 18px;
+  --radius-md: 12px;
+  --radius-sm: 8px;
+  --shadow-paper: 0 1px 2px rgba(13,35,38,.05), 0 10px 30px -18px rgba(13,35,38,.25);
+}
+
+*, *::before, *::after{ box-sizing: border-box; }
+
+html, body{ height: 100%; }
+
+body{
+  margin: 0;
+  font-family: "DM Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--canvas);
+  color: var(--ink);
+  font-size: 15px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3{
+  font-family: "Fraunces", Georgia, serif;
+  color: var(--teal-950);
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+p{ margin: 0; }
+
+button{
+  font-family: inherit;
+  font-size: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+  color: inherit;
+}
+
+a{ color: inherit; }
+
+:focus-visible{
+  outline: 2px solid var(--teal-500);
+  outline-offset: 2px;
+}
+
+/* ---------------------------------------------------------
+   Shell
+   --------------------------------------------------------- */
+
+.app-shell{
+  display: grid;
+  grid-template-columns: 248px 1fr;
+  min-height: 100vh;
+}
+
+/* ---------------------------------------------------------
+   Sidebar
+   --------------------------------------------------------- */
+
+.sidebar{
+  background: var(--teal-950);
+  color: #cfe6e5;
+  padding: 22px 16px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+}
+
+.brand{
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  text-decoration: none;
+  color: #fff;
+  padding: 0 6px;
+}
+
+.brand-mark{
+  font-family: "Fraunces", serif;
+  font-size: 22px;
+  color: var(--teal-500);
+}
+
+.brand > span:nth-child(2){
+  font-family: "Fraunces", serif;
+  font-size: 18px;
+  font-weight: 600;
+  display: flex;
+  flex-direction: column;
+  line-height: 1.15;
+}
+
+.brand small{
+  font-family: "DM Sans", sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: .08em;
+  color: var(--teal-500);
+}
+
+.hospital-switcher{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--teal-900);
+  border: 1px solid var(--teal-800);
+  border-radius: var(--radius-md);
+  padding: 10px 12px;
+  font-size: 13px;
+}
+
+.hospital-switcher .avatar{
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+  border-radius: 8px;
+  background: var(--teal-600);
+  color: #fff;
+  display: grid;
+  place-items: center;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.hospital-switcher > span:nth-child(2){
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  flex: 1;
+  min-width: 0;
+}
+
+.hospital-switcher small{
+  color: var(--teal-500);
+  font-size: 11px;
+}
+
+.hospital-switcher .chevron{ color: var(--teal-500); }
+
+nav[aria-label="Main navigation"]{
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-top: 4px;
+}
+
+.nav-link{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  text-align: left;
+  padding: 9px 10px;
+  border-radius: var(--radius-sm);
+  color: #a9c7c5;
+  font-size: 13.5px;
+  transition: background .15s ease, color .15s ease;
+}
+
+.nav-link span{
+  width: 18px;
+  text-align: center;
+  color: var(--teal-500);
+  font-size: 13px;
+}
+
+.nav-link:hover{
+  background: var(--teal-900);
+  color: #fff;
+}
+
+.nav-link.active{
+  background: var(--teal-700);
+  color: #fff;
+}
+
+.nav-link.active span{ color: #cdeceb; }
+
+.nav-link b{
+  margin-left: auto;
+  background: rgba(255,255,255,.14);
+  color: #fff;
+  font-size: 10.5px;
+  font-weight: 600;
+  padding: 1px 6px;
+  border-radius: 999px;
+}
+
+.nav-link.active b{ background: rgba(255,255,255,.22); }
+
+.sidebar-footer{
+  margin-top: auto;
+  font-size: 12px;
+  color: var(--teal-500);
+  padding: 10px 6px 0;
+  border-top: 1px solid var(--teal-800);
+}
+
+.sidebar-footer small{ color: #6f9694; }
+
+.status-dot{
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #4fbf8f;
+  margin-right: 6px;
+}
+
+/* ---------------------------------------------------------
+   Main / header
+   --------------------------------------------------------- */
+
+main{ min-width: 0; }
+
+header{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 32px;
+  border-bottom: 1px solid var(--line);
+  background: var(--paper);
+}
+
+.crumb{
+  font-size: 12.5px;
+  color: var(--ink-faint);
+  letter-spacing: .03em;
+}
+
+.crumb strong{ color: var(--ink); }
+
+.crumb span{ margin: 0 4px; }
+
+.header-actions{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.icon-button{
+  position: relative;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: var(--teal-50);
+  border: 1px solid var(--line);
+  display: grid;
+  place-items: center;
+  color: var(--teal-700);
+}
+
+.icon-button i{
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--coral);
+}
+
+.profile{
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--teal-900);
+  color: #fff;
+  padding: 7px 10px 7px 12px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.profile span{ color: var(--teal-500); font-weight: 400; }
+
+/* ---------------------------------------------------------
+   Pages
+   --------------------------------------------------------- */
+
+.page{
+  display: none;
+  padding: 28px 32px 60px;
+  max-width: 1180px;
+}
+
+.page.active{ display: block; }
+
+.section-heading{
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 22px;
+}
+
+.section-heading h1{ font-size: 26px; margin-bottom: 6px; }
+
+.section-heading p{ color: var(--ink-soft); max-width: 52ch; font-size: 13.5px; }
+
+.eyebrow{
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .09em;
+  color: var(--teal-600);
+  margin: 0 0 6px;
+}
+
+button.primary{
+  background: var(--teal-700);
+  color: #fff;
+  padding: 10px 16px;
+  border-radius: var(--radius-sm);
+  font-size: 13.5px;
+  font-weight: 600;
+  white-space: nowrap;
+  transition: background .15s ease;
+}
+
+button.primary:hover{ background: var(--teal-600); }
+
+button.secondary{
+  background: var(--teal-50);
+  color: var(--teal-800);
+  border: 1px solid var(--line);
+  padding: 9px 14px;
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+button.secondary:hover{ background: var(--teal-100); }
+
+.text-button{
+  color: var(--teal-700);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* ---------------------------------------------------------
+   Dashboard
+   --------------------------------------------------------- */
+
+.demo-banner{
+  background: var(--blue-bg);
+  color: var(--blue);
+  border: 1px solid #cfe0ec;
+  border-radius: var(--radius-sm);
+  padding: 9px 14px;
+  font-size: 12.5px;
+  margin-bottom: 20px;
+}
+
+.hero{
+  background: var(--teal-950);
+  color: #eafaf8;
+  border-radius: var(--radius-lg);
+  padding: 32px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 30px;
+  margin-bottom: 22px;
+}
+
+.hero .eyebrow{ color: var(--teal-500); }
+
+.hero h1{
+  color: #fff;
+  font-size: 32px;
+  font-weight: 600;
+  line-height: 1.15;
+}
+
+.hero h1 em{ color: var(--teal-500); font-style: normal; }
+
+.hero .lead{
+  color: #a9c7c5;
+  max-width: 40ch;
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+.hero button.primary{
+  background: #fff;
+  color: var(--teal-950);
+  flex-shrink: 0;
+}
+
+.hero button.primary:hover{ background: var(--teal-100); }
+
+.stats{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  margin-bottom: 22px;
+}
+
+.stats article{
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  padding: 16px;
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.stat-icon{
+  width: 34px;
+  height: 34px;
+  border-radius: 9px;
+  display: grid;
+  place-items: center;
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
+.stat-icon.aqua{ background: var(--teal-100); color: var(--teal-700); }
+.stat-icon.amber{ background: var(--amber-bg); color: var(--amber); }
+.stat-icon.coral{ background: var(--coral-bg); color: var(--coral); }
+.stat-icon.blue{ background: var(--blue-bg); color: var(--blue); }
+
+.stats strong{ font-family: "Fraunces", serif; font-size: 24px; color: var(--ink); display: block; }
+
+.stats p{ font-size: 12.5px; color: var(--ink-soft); margin-top: 2px; }
+
+.stats .up{ color: var(--good); font-weight: 600; }
+
+.grid.two-one{
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 16px;
+  margin-bottom: 16px;
+  align-items: start;
+}
+
+.card{
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  padding: 20px;
+}
+
+.card-title{
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
+.card-title h2{ font-size: 16px; }
+
+.attention-list{ display: flex; flex-direction: column; gap: 10px; }
+
+.attention-row{
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 11px 12px;
+  border: 1px solid var(--line-soft);
+  border-radius: var(--radius-sm);
+}
+
+.attention-row .dot{
+  width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0;
+}
+
+.attention-row .dot.amber{ background: var(--amber); }
+.attention-row .dot.coral{ background: var(--coral); }
+
+.attention-row .body{ flex: 1; min-width: 0; }
+
+.attention-row strong{ display: block; font-size: 13.5px; }
+
+.attention-row span{ font-size: 12px; color: var(--ink-soft); }
+
+.attention-row .tag{
+  font-size: 11px;
+  font-weight: 600;
+  padding: 3px 9px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.attention-row .tag.amber{ background: var(--amber-bg); color: var(--amber); }
+.attention-row .tag.coral{ background: var(--coral-bg); color: var(--coral); }
+
+.context-card{ display: flex; flex-direction: column; gap: 10px; }
+
+.context-label{ font-size: 13px; font-weight: 600; color: var(--ink); }
+
+.drought-ring{
+  align-self: flex-start;
+  border: 6px solid var(--amber-bg);
+  border-top-color: var(--amber);
+  border-radius: 50%;
+  width: 88px;
+  height: 88px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 6px 0;
+}
+
+.drought-ring strong{ font-size: 13px; color: var(--amber); }
+
+.drought-ring span{ font-size: 10px; color: var(--ink-soft); text-align: center; }
+
+.context-card p{ font-size: 12.5px; color: var(--ink-soft); }
+
+.context-card a{
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--teal-700);
+  text-decoration: none;
+}
+
+.progress-card .card-title{ margin-bottom: 12px; }
+
+.due{ font-size: 12px; color: var(--coral); font-weight: 600; }
+
+.progress-track{
+  height: 8px;
+  background: var(--line-soft);
+  border-radius: 999px;
+  overflow: hidden;
+  margin-bottom: 12px;
+}
+
+.progress-track span{
+  display: block;
+  height: 100%;
+  width: 75%;
+  background: linear-gradient(90deg, var(--teal-600), var(--teal-500));
+  border-radius: 999px;
+}
+
+.progress-steps{
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+  font-size: 12.5px;
+}
+
+.progress-steps span{ color: var(--ink-faint); }
+
+.progress-steps span.done{ color: var(--good); font-weight: 600; }
+
+/* ---------------------------------------------------------
+   Hospital setup
+   --------------------------------------------------------- */
+
+.setup-summary{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+.setup-summary article{
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  padding: 16px;
+}
+
+.setup-summary small{
+  display: block;
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: .07em;
+  color: var(--teal-600);
+  margin-bottom: 6px;
+}
+
+.setup-summary strong{ display: block; font-size: 15px; margin-bottom: 3px; }
+
+.setup-summary span{ font-size: 12.5px; color: var(--ink-soft); }
+
+.system-diagram{
+  display: flex;
+  align-items: stretch;
+  gap: 0;
+  margin-bottom: 18px;
+  overflow-x: auto;
+}
+
+.flow-node{
+  flex: 1;
+  min-width: 150px;
+  background: var(--teal-50);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  padding: 14px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.flow-node small{ display: block; font-weight: 400; color: var(--ink-soft); margin-top: 3px; font-size: 11.5px; }
+
+.flow-node.critical{ background: var(--coral-bg); border-color: #ecccc4; }
+
+.flow-line{
+  width: 28px;
+  flex-shrink: 0;
+  align-self: center;
+  height: 2px;
+  background: repeating-linear-gradient(90deg, var(--teal-500) 0 6px, transparent 6px 10px);
+}
+
+.asset-grid{
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 12px;
+}
+
+.asset-card{
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  padding: 14px;
+}
+
+.asset-card strong{ display: block; font-size: 13.5px; margin-bottom: 4px; }
+
+.asset-card span{ font-size: 12px; color: var(--ink-soft); display: block; }
+
+.asset-card .role{
+  display: inline-block;
+  margin-top: 8px;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--teal-700);
+  background: var(--teal-100);
+  padding: 2px 8px;
+  border-radius: 999px;
+}
+
+/* ---------------------------------------------------------
+   Tables — risk register
+   --------------------------------------------------------- */
+
+.table-card{ padding: 0; overflow: hidden; }
+
+table{
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+thead th{
+  text-align: left;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .05em;
+  color: var(--ink-faint);
+  background: var(--teal-50);
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--line);
+}
+
+tbody td{
+  padding: 13px 16px;
+  border-bottom: 1px solid var(--line-soft);
+  vertical-align: top;
+}
+
+tbody tr:last-child td{ border-bottom: none; }
+
+.risk-badge{
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 999px;
+}
+
+.risk-badge.high{ background: var(--coral-bg); color: var(--coral); }
+.risk-badge.medium{ background: var(--amber-bg); color: var(--amber); }
+.risk-badge.low{ background: var(--good-bg); color: var(--good); }
+
+td.hazard strong{ display: block; font-size: 13px; }
+td.hazard span{ font-size: 12px; color: var(--ink-soft); }
+
+/* ---------------------------------------------------------
+   Monitoring
+   --------------------------------------------------------- */
+
+.calendar-head{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
+.calendar-head h2{ font-size: 15px; }
+
+.calendar-head span{ font-size: 12px; color: var(--ink-soft); }
+
+.monitoring-list{ display: flex; flex-direction: column; gap: 8px; }
+
+.monitoring-row{
+  display: grid;
+  grid-template-columns: 90px 1fr auto auto;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 14px;
+  border: 1px solid var(--line-soft);
+  border-radius: var(--radius-sm);
+}
+
+.monitoring-row .date{ font-size: 12px; color: var(--ink-faint); font-weight: 600; }
+
+.monitoring-row .body strong{ display: block; font-size: 13.5px; }
+
+.monitoring-row .body span{ font-size: 12px; color: var(--ink-soft); }
+
+.monitoring-row .value{ font-size: 13px; font-weight: 600; color: var(--ink); white-space: nowrap; }
+
+.monitoring-row .status{
+  font-size: 11px;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.monitoring-row .status.ok{ background: var(--good-bg); color: var(--good); }
+.monitoring-row .status.overdue{ background: var(--coral-bg); color: var(--coral); }
+.monitoring-row .status.due{ background: var(--amber-bg); color: var(--amber); }
+
+/* ---------------------------------------------------------
+   Report / PSA "paper" pages
+   --------------------------------------------------------- */
+
+.plan-layout{
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 18px;
+  align-items: start;
+}
+
+.plan-paper{
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-paper);
+  padding: 30px 34px;
+}
+
+.paper-head{
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 16px;
+}
+
+.paper-head .brand-mark{ font-size: 26px; color: var(--teal-600); }
+
+.paper-head p{
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: .08em;
+  color: var(--teal-600);
+  margin-bottom: 2px;
+}
+
+.paper-head h2{ font-size: 19px; }
+
+.paper-head small{ color: var(--ink-soft); font-size: 12px; }
+
+.plan-paper hr{ border: none; border-top: 1px solid var(--line); margin: 18px 0; }
+
+.paper-section{
+  display: flex;
+  gap: 16px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--line-soft);
+}
+
+.paper-section:last-child{ border-bottom: none; }
+
+.paper-section > span{
+  font-family: "Fraunces", serif;
+  font-size: 13px;
+  color: var(--teal-500);
+  flex-shrink: 0;
+  width: 22px;
+}
+
+.paper-section h3{ font-size: 14.5px; margin-bottom: 4px; }
+
+.paper-section p{ font-size: 13px; color: var(--ink-soft); }
+
+.plan-side{ display: flex; flex-direction: column; gap: 12px; position: sticky; top: 20px; }
+
+.plan-side strong{ display: block; font-size: 17px; margin-bottom: 2px; }
+
+.plan-side > p{ font-size: 12.5px; color: var(--ink-soft); }
+
+.plan-side hr{ border: none; border-top: 1px solid var(--line); margin: 4px 0; }
+
+.plan-side .secondary{ width: 100%; }
+
+.plan-side ul{ list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
+
+.plan-side li{ font-size: 12.5px; color: var(--ink-soft); display: flex; gap: 8px; }
+
+.plan-side li span{ color: var(--ink-faint); font-weight: 600; flex-shrink: 0; width: 44px; }
+
+/* ---------------------------------------------------------
+   Dialog / toast
+   --------------------------------------------------------- */
+
+dialog{
+  border: none;
+  border-radius: var(--radius-lg);
+  padding: 0;
+  box-shadow: 0 20px 60px rgba(13,35,38,.25);
+  width: min(420px, 90vw);
+}
+
+dialog::backdrop{ background: rgba(13,35,38,.45); }
+
+dialog form{ padding: 26px 26px 22px; position: relative; }
+
+dialog .close{
+  position: absolute;
+  top: 16px; right: 18px;
+  font-size: 18px;
+  color: var(--ink-faint);
+}
+
+dialog h2{ font-size: 18px; margin-bottom: 16px; }
+
+dialog label{
+  display: block;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--ink-soft);
+  margin-bottom: 12px;
+}
+
+dialog input{
+  display: block;
+  width: 100%;
+  margin-top: 6px;
+  padding: 10px 12px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  font-size: 13.5px;
+  font-family: inherit;
+}
+
+dialog input:focus{ outline: 2px solid var(--teal-500); outline-offset: 1px; border-color: transparent; }
+
+.dialog-actions{
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 6px;
+}
+
+#toast{
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  background: var(--teal-950);
+  color: #fff;
+  padding: 12px 20px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 600;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .2s ease, transform .2s ease;
+  z-index: 50;
+}
+
+#toast.show{
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* ---------------------------------------------------------
+   Responsive
+   --------------------------------------------------------- */
+
+@media (max-width: 980px){
+  .app-shell{ grid-template-columns: 1fr; }
+  .sidebar{ position: static; height: auto; flex-direction: row; flex-wrap: wrap; }
+  nav[aria-label="Main navigation"]{ flex-direction: row; flex-wrap: wrap; }
+  .sidebar-footer{ display: none; }
+  .stats{ grid-template-columns: repeat(2, 1fr); }
+  .grid.two-one, .plan-layout{ grid-template-columns: 1fr; }
+  .setup-summary{ grid-template-columns: 1fr; }
+}
+
+@media (prefers-reduced-motion: reduce){
+  *{ transition: none !important; animation: none !important; }
+}
+</style>
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <a class="brand" href="#dashboard"><span class="brand-mark">≈</span><span>AquaGuard<small>PSA HOSPITALS</small></span></a>
+        <div class="hospital-switcher"><span class="avatar">SM</span><span>Santa Marina Hospital<small>Madrid · 284 beds</small></span><span class="chevron">⌄</span></div>
+        <nav aria-label="Main navigation">
+          <button class="nav-link active" data-page="dashboard"><span>▦</span>Overview</button>
+          <button class="nav-link" data-page="assets"><span>⌘</span>Hospital setup</button>
+          <button class="nav-link" data-page="risks"><span>◇</span>Risk register <b id="risk-count">3</b></button>
+          <button class="nav-link" data-page="monitoring"><span>◷</span>Monitoring <b id="monitor-count">4</b></button>
+          <button class="nav-link" data-page="report"><span>▤</span>Compliance report</button>
+          <button class="nav-link" data-page="plan"><span>▤</span>PSA document</button>
+        </nav>
+        <div class="sidebar-footer"><span class="status-dot"></span> PSA review current<br /><small>Last review: 4 Sep 2026</small></div>
+      </aside>
+
+      <main>
+        <header><div class="crumb">COMPLIANCE WORKSPACE <span>/</span> <strong id="page-name">OVERVIEW</strong></div><div class="header-actions"><button class="icon-button" aria-label="Notifications">◌<i></i></button><button class="profile">LM <span>⌄</span></button></div></header>
+
+        <section class="page active" id="dashboard">
+          <div class="demo-banner"><strong>● Demo workspace</strong> — all hospital, sensor, and compliance records shown here are illustrative.</div>
+          <div class="hero"><div><p class="eyebrow">WEDNESDAY, 10 SEPTEMBER</p><h1>Water quality, monitored<br /><em>automatically.</em></h1><p class="lead">Sensor and laboratory readings feed your plan continuously. One exception needs attention today.</p></div><button class="primary" data-page-target="report">View compliance report <span>→</span></button></div>
+          <div class="stats">
+            <article><span class="stat-icon aqua">✓</span><div><strong>91%</strong><p>Compliance score <span class="up">+4% this month</span></p></div></article>
+            <article><span class="stat-icon amber">!</span><div><strong id="overdue-total">4</strong><p>Monitoring checks overdue</p></div></article>
+            <article><span class="stat-icon coral">◇</span><div><strong>3</strong><p>Risks needing review</p></div></article>
+            <article><span class="stat-icon blue">↗</span><div><strong>26</strong><p>Readings received this month</p></div></article>
+          </div>
+          <div class="grid two-one">
+            <section class="card"><div class="card-title"><div><p class="eyebrow">ACTION CENTRE</p><h2>Needs your attention</h2></div><button class="text-button" data-page-target="monitoring">View all →</button></div><div id="attention-list" class="attention-list"></div></section>
+            <section class="card context-card"><p class="eyebrow">LOCAL CONTEXT</p><span class="context-label">Madrid, ES</span><div class="drought-ring"><strong>Moderate</strong><span>Drought exposure</span></div><p>Regional water restrictions are unchanged. Review non-essential water use with facilities.</p><a href="#">View local context →</a></section>
+          </div>
+          <section class="card progress-card"><div class="card-title"><div><p class="eyebrow">PSA HEALTH</p><h2>Annual plan review</h2></div><span class="due">Due 15 Dec 2026</span></div><div class="progress-track"><span></span></div><div class="progress-steps"><span class="done">✓ System mapped</span><span class="done">✓ Risks assessed</span><span class="done">✓ Controls verified</span><span>○ Management sign-off</span></div></section>
+        </section>
+
+        <section class="page" id="assets"><div class="section-heading"><div><p class="eyebrow">HOSPITAL SETUP</p><h1>Build your safety baseline.</h1><p>Connect the site, its water system, critical services, and accountable people before monitoring begins.</p></div><button class="primary" id="add-asset">+ Add asset</button></div><div class="setup-summary"><article><small>HOSPITAL</small><strong>Santa Marina Hospital</strong><span>Madrid · 284 beds · 3 buildings</span></article><article><small>REGULATORY SCOPE</small><strong>Priority hospital</strong><span>PSA review annually</span></article><article><small>WATER SAFETY TEAM</small><strong>4 assigned members</strong><span>Facilities · Quality · Infection control</span></article></div><div class="system-diagram card"><div class="flow-node source">Municipal supply<small>Canal de Isabel II</small></div><div class="flow-line"></div><div class="flow-node storage">Cold-water tanks<small>2 × 4,000 L</small></div><div class="flow-line"></div><div class="flow-node distribution">Distribution<small>12 monitored zones</small></div><div class="flow-line"></div><div class="flow-node critical">Critical units<small>ICU · Dialysis · CSSD</small></div></div><div class="asset-grid" id="asset-grid"></div></section>
+
+        <section class="page" id="risks"><div class="section-heading"><div><p class="eyebrow">RISK REGISTER</p><h1>Prioritise what matters.</h1><p>A single, accountable view of hazards and their control measures.</p></div><button class="primary" id="add-risk">+ Add risk</button></div><section class="card table-card"><table><thead><tr><th>Hazard / location</th><th>Risk level</th><th>Control measure</th><th>Owner</th><th>Review</th></tr></thead><tbody id="risk-table"></tbody></table></section></section>
+
+          <section class="page" id="monitoring"><div class="section-heading"><div><p class="eyebrow">AUTOMATED MONITORING</p><h1>Turn readings into evidence.</h1><p>Connected sensors and lab feeds capture water-quality data, flag exceptions, and preserve the audit trail.</p></div><button class="primary" id="add-check">+ Add reading</button></div><section class="card"><div class="calendar-head"><h2>September 2026</h2><span>All monitoring points</span></div><div id="monitoring-list" class="monitoring-list"></div></section></section>
+
+        <section class="page" id="report"><div class="section-heading"><div><p class="eyebrow">STEP 1 · REPORT</p><h1>Inspection compliance report.</h1><p>A clear, dated snapshot of water-quality evidence, exceptions, and actions for review.</p></div><button class="primary" id="export-report">↓ Export report</button></div><div class="plan-layout"><section class="plan-paper"><div class="paper-head"><span class="brand-mark">≈</span><div><p>WATER-QUALITY COMPLIANCE REPORT</p><h2>Hospital Santa Marina</h2><small>Reporting period: 1–10 Sep 2026 · Draft</small></div></div><hr /><div class="paper-section"><span>01</span><div><h3>Monitoring overview</h3><p>26 readings received from connected monitoring points and laboratory feeds. 22 results are within hospital-defined operating thresholds.</p></div></div><div class="paper-section"><span>02</span><div><h3>Exceptions requiring action</h3><p>Two automatic alerts remain open: Cooling tower CT-04 temperature and Ward 3 flushing-cycle confirmation.</p></div></div><div class="paper-section"><span>03</span><div><h3>Corrective-action evidence</h3><p>All closed actions, supporting records, timestamps, and responsible persons are included in the final export.</p></div></div></section><aside class="card plan-side"><p class="eyebrow">REPORT STATUS</p><strong>2 actions open</strong><p>This report can be exported now. Closing exceptions will update its compliance summary automatically.</p><button class="secondary" data-page-target="monitoring">Review exceptions</button><hr /><p class="eyebrow">NEXT STEP</p><p>Approved report data contributes to the Plan Sanitario del Agua.</p><button class="secondary" data-page-target="plan">View PSA document</button></aside></div></section>
+
+        <section class="page" id="plan"><div class="section-heading"><div><p class="eyebrow">STEP 2 · PSA</p><h1>Plan Sanitario del Agua.</h1><p>Version-controlled, complete, and ready to share with your health authority.</p></div><button class="primary" id="export-plan">↓ Export PDF</button></div><div class="plan-layout"><section class="plan-paper"><div class="paper-head"><span class="brand-mark">≈</span><div><p>PLAN SANITARIO DEL AGUA</p><h2>Hospital Santa Marina</h2><small>Version 1.4 · Last updated 10 Sep 2026</small></div></div><hr /><div class="paper-section"><span>01</span><div><h3>Building & water-system description</h3><p>Complete · Municipal supply, two cold-water storage tanks, twelve distribution zones, and critical clinical units mapped.</p></div></div><div class="paper-section"><span>02</span><div><h3>Risk assessment & control measures</h3><p>Complete · 14 hazards assessed; three items scheduled for review.</p></div></div><div class="paper-section"><span>03</span><div><h3>Automated monitoring & corrective actions</h3><p>In progress · Connected readings are captured automatically; four exceptions need resolution.</p></div></div><div class="paper-section"><span>04</span><div><h3>Annual verification & approval</h3><p>Pending · Management sign-off due 15 December 2026.</p></div></div></section><aside class="card plan-side"><p class="eyebrow">DOCUMENT STATUS</p><strong>Ready with actions</strong><p>Resolve the four monitoring exceptions to prepare this version for approval.</p><button class="secondary" data-page-target="monitoring">Review exceptions</button><hr /><p class="eyebrow">AUDIT TRAIL</p><ul><li><span>10 Sep</span> Automated readings received</li><li><span>04 Sep</span> Annual review started</li><li><span>21 Aug</span> Risk register approved</li></ul></aside></div></section>
+      </main>
+    </div>
+    <dialog id="entry-dialog"><form method="dialog"><button class="close" value="cancel">×</button><p class="eyebrow" id="dialog-kicker">NEW RECORD</p><h2 id="dialog-title">Add a record</h2><label>Title<input id="record-title" required placeholder="e.g. Weekly tank temperature" /></label><label>Owner / location<input id="record-detail" required placeholder="e.g. Facilities team" /></label><div class="dialog-actions"><button class="secondary" value="cancel">Cancel</button><button class="primary" id="save-record" value="default">Save record</button></div></form></dialog>
+    <div id="toast" role="status"></div><script>// ===========================================================
+// AquaGuard — Hospital Water Safety
+// Demo data + interactions. No backend: everything lives in
+// memory for the session, matching the "demo workspace" banner.
+// ===========================================================
+
+const PAGE_TITLES = {
+  dashboard: "OVERVIEW",
+  assets: "HOSPITAL SETUP",
+  risks: "RISK REGISTER",
+  monitoring: "MONITORING",
+  report: "COMPLIANCE REPORT",
+  plan: "PSA DOCUMENT",
+};
+
+// ---- Demo data --------------------------------------------
+
+let risks = [
+  {
+    hazard: "Legionella growth",
+    location: "Cooling tower CT-04",
+    level: "high",
+    control: "Weekly biocide dosing + monthly culture test",
+    owner: "Facilities · R. Nieto",
+    review: "18 Sep 2026",
+  },
+  {
+    hazard: "Stagnant outlets",
+    location: "Ward 3, unused rooms",
+    level: "medium",
+    control: "Weekly flushing cycle, logged per outlet",
+    owner: "Nursing · Ward 3 lead",
+    review: "22 Sep 2026",
+  },
+  {
+    hazard: "Backflow risk",
+    location: "Dialysis unit supply",
+    level: "medium",
+    control: "Annual backflow preventer inspection",
+    owner: "Facilities · M. Ortiz",
+    review: "03 Oct 2026",
+  },
+  {
+    hazard: "Tank temperature drift",
+    location: "Cold-water tank 2",
+    level: "low",
+    control: "Daily automated temperature logging",
+    owner: "Facilities · Automated",
+    review: "12 Dec 2026",
+  },
+];
+
+let monitoringPoints = [
+  {
+    date: "10 Sep",
+    title: "Cooling tower CT-04 — temperature",
+    detail: "Automated sensor · every 4h",
+    value: "38.2 °C",
+    status: "overdue",
+  },
+  {
+    date: "10 Sep",
+    title: "Ward 3 — flushing cycle confirmation",
+    detail: "Manual check · nursing staff",
+    value: "Unconfirmed",
+    status: "overdue",
+  },
+  {
+    date: "09 Sep",
+    title: "ICU outlets — residual chlorine",
+    detail: "Laboratory feed · weekly",
+    value: "0.42 mg/L",
+    status: "ok",
+  },
+  {
+    date: "09 Sep",
+    title: "Cold-water tank 1 — temperature",
+    detail: "Automated sensor · every 6h",
+    value: "19.8 °C",
+    status: "ok",
+  },
+  {
+    date: "08 Sep",
+    title: "Dialysis unit — endotoxin test",
+    detail: "Laboratory feed · monthly",
+    value: "Due 14 Sep",
+    status: "due",
+  },
+  {
+    date: "07 Sep",
+    title: "Distribution zone 6 — flow rate",
+    detail: "Automated sensor · daily",
+    value: "Within range",
+    status: "ok",
+  },
+];
+
+let assets = [
+  { name: "Cold-water tank 1", detail: "4,000 L · Rooftop plant room", role: "Storage" },
+  { name: "Cold-water tank 2", detail: "4,000 L · Rooftop plant room", role: "Storage" },
+  { name: "Cooling tower CT-04", detail: "Building B, service yard", role: "Critical asset" },
+  { name: "ICU distribution loop", detail: "Zone 3 · 6 outlets", role: "Critical unit" },
+  { name: "Dialysis unit supply", detail: "Zone 5 · dedicated line", role: "Critical unit" },
+  { name: "CSSD water supply", detail: "Zone 7 · dedicated line", role: "Critical unit" },
+];
+
+// ---- Navigation ---------------------------------------------
+
+function setActivePage(pageId) {
+  document.querySelectorAll(".page").forEach((el) => {
+    el.classList.toggle("active", el.id === pageId);
+  });
+  document.querySelectorAll(".nav-link").forEach((btn) => {
+    btn.classList.toggle("active", btn.dataset.page === pageId);
+  });
+  const label = document.getElementById("page-name");
+  if (label) label.textContent = PAGE_TITLES[pageId] || pageId.toUpperCase();
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+document.querySelectorAll("[data-page]").forEach((btn) => {
+  btn.addEventListener("click", () => setActivePage(btn.dataset.page));
+});
+
+document.querySelectorAll("[data-page-target]").forEach((btn) => {
+  btn.addEventListener("click", () => setActivePage(btn.dataset.pageTarget));
+});
+
+// ---- Renderers ------------------------------------------------
+
+function renderAttentionList() {
+  const el = document.getElementById("attention-list");
+  if (!el) return;
+  const items = monitoringPoints.filter((m) => m.status !== "ok").slice(0, 3);
+  el.innerHTML = items
+    .map(
+      (m) => `
+      <div class="attention-row">
+        <span class="dot ${m.status === "overdue" ? "coral" : "amber"}"></span>
+        <div class="body">
+          <strong>${m.title}</strong>
+          <span>${m.detail}</span>
+        </div>
+        <span class="tag ${m.status === "overdue" ? "coral" : "amber"}">${
+          m.status === "overdue" ? "Overdue" : "Due soon"
+        }</span>
+      </div>`
+    )
+    .join("");
+}
+
+function renderRiskTable() {
+  const el = document.getElementById("risk-table");
+  if (!el) return;
+  el.innerHTML = risks
+    .map(
+      (r) => `
+      <tr>
+        <td class="hazard"><strong>${r.hazard}</strong><span>${r.location}</span></td>
+        <td><span class="risk-badge ${r.level}">${
+          r.level.charAt(0).toUpperCase() + r.level.slice(1)
+        }</span></td>
+        <td>${r.control}</td>
+        <td>${r.owner}</td>
+        <td>${r.review}</td>
+      </tr>`
+    )
+    .join("");
+  const count = document.getElementById("risk-count");
+  if (count) count.textContent = risks.length;
+}
+
+function renderMonitoringList() {
+  const el = document.getElementById("monitoring-list");
+  if (!el) return;
+  el.innerHTML = monitoringPoints
+    .map(
+      (m) => `
+      <div class="monitoring-row">
+        <span class="date">${m.date}</span>
+        <div class="body">
+          <strong>${m.title}</strong>
+          <span>${m.detail}</span>
+        </div>
+        <span class="value">${m.value}</span>
+        <span class="status ${m.status}">${
+          m.status === "ok" ? "On track" : m.status === "overdue" ? "Overdue" : "Due soon"
+        }</span>
+      </div>`
+    )
+    .join("");
+  const overdueCount = monitoringPoints.filter((m) => m.status !== "ok").length;
+  const total = document.getElementById("overdue-total");
+  if (total) total.textContent = overdueCount;
+  const monitorCount = document.getElementById("monitor-count");
+  if (monitorCount) monitorCount.textContent = overdueCount;
+}
+
+function renderAssetGrid() {
+  const el = document.getElementById("asset-grid");
+  if (!el) return;
+  el.innerHTML = assets
+    .map(
+      (a) => `
+      <div class="asset-card">
+        <strong>${a.name}</strong>
+        <span>${a.detail}</span>
+        <span class="role">${a.role}</span>
+      </div>`
+    )
+    .join("");
+}
+
+function renderAll() {
+  renderAttentionList();
+  renderRiskTable();
+  renderMonitoringList();
+  renderAssetGrid();
+}
+
+renderAll();
+
+// ---- Toast ------------------------------------------------
+
+let toastTimer = null;
+function showToast(message) {
+  const toast = document.getElementById("toast");
+  if (!toast) return;
+  toast.textContent = message;
+  toast.classList.add("show");
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => toast.classList.remove("show"), 2600);
+}
+
+// ---- Add-record dialog ---------------------------------------
+
+const dialog = document.getElementById("entry-dialog");
+const dialogKicker = document.getElementById("dialog-kicker");
+const dialogTitle = document.getElementById("dialog-title");
+const titleInput = document.getElementById("record-title");
+const detailInput = document.getElementById("record-detail");
+let pendingType = null;
+
+const DIALOG_CONFIG = {
+  asset: {
+    kicker: "NEW ASSET",
+    title: "Add a water-system asset",
+    titlePlaceholder: "e.g. Rooftop header tank",
+    detailPlaceholder: "e.g. Zone 4 · 2,000 L",
+  },
+  risk: {
+    kicker: "NEW RISK",
+    title: "Add a risk",
+    titlePlaceholder: "e.g. Low outlet usage",
+    detailPlaceholder: "e.g. Facilities team",
+  },
+  check: {
+    kicker: "NEW READING",
+    title: "Add a monitoring reading",
+    titlePlaceholder: "e.g. Ward 5 — outlet temperature",
+    detailPlaceholder: "e.g. Manual check · nursing staff",
+  },
+};
+
+function openDialog(type) {
+  pendingType = type;
+  const cfg = DIALOG_CONFIG[type];
+  dialogKicker.textContent = cfg.kicker;
+  dialogTitle.textContent = cfg.title;
+  titleInput.placeholder = cfg.titlePlaceholder;
+  detailInput.placeholder = cfg.detailPlaceholder;
+  titleInput.value = "";
+  detailInput.value = "";
+  dialog.showModal();
+  titleInput.focus();
+}
+
+document.getElementById("add-asset")?.addEventListener("click", () => openDialog("asset"));
+document.getElementById("add-risk")?.addEventListener("click", () => openDialog("risk"));
+document.getElementById("add-check")?.addEventListener("click", () => openDialog("check"));
+
+dialog?.addEventListener("close", () => {
+  if (dialog.returnValue !== "default" || !pendingType) {
+    pendingType = null;
+    return;
+  }
+  const title = titleInput.value.trim();
+  const detail = detailInput.value.trim();
+  if (!title || !detail) {
+    pendingType = null;
+    return;
+  }
+
+  if (pendingType === "asset") {
+    assets.unshift({ name: title, detail, role: "New asset" });
+    renderAssetGrid();
+    showToast("Asset added");
+  } else if (pendingType === "risk") {
+    risks.unshift({
+      hazard: title,
+      location: detail,
+      level: "medium",
+      control: "Control measure not yet defined",
+      owner: detail,
+      review: "To be scheduled",
+    });
+    renderRiskTable();
+    showToast("Risk added to register");
+  } else if (pendingType === "check") {
+    monitoringPoints.unshift({
+      date: "Today",
+      title,
+      detail,
+      value: "Pending",
+      status: "due",
+    });
+    renderMonitoringList();
+    renderAttentionList();
+    showToast("Reading logged");
+  }
+  pendingType = null;
+});
+
+// ---- Export buttons (demo workspace: simulate, don't fabricate files) --
+
+document.getElementById("export-report")?.addEventListener("click", () => {
+  showToast("Report export started — this is a demo workspace");
+});
+
+document.getElementById("export-plan")?.addEventListener("click", () => {
+  showToast("PSA export started — this is a demo workspace");
+});
+
+document.getElementById("save-record")?.addEventListener("click", (e) => {
+  if (!titleInput.value.trim() || !detailInput.value.trim()) {
+    e.preventDefault();
+    titleInput.reportValidity();
+  }
+});
+</script>
+  </body>
+</html>
