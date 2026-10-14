@@ -1,6 +1,6 @@
 # Water Under Pressure: Finding Opportunity in Europe's Changing Water Economy
 
-*ATELIA × ESCP — Open Case Brief*
+*ATELIA — Open Case Brief*
 
 On August 12, 2026, the European Commission’s Joint Research Centre (JRC) reported that prolonged rainfall deficits and repeated heatwaves had pushed four of Europe’s major rivers: the Loire, Po, Rhine, and Danube to record-low levels. Along the Rhine in Cologne, normally submerged riverbanks had become exposed. Across the continent, the implications were beginning to spread beyond the environment. Low river levels were affecting navigation, agriculture, electricity generation, water supply, tourism, and industrial activity. By late July, approximately half of the territory of the European Union and the United Kingdom was experiencing some level of drought, with France, Germany, Hungary, Romania, and the United Kingdom among the areas showing particularly severe conditions.
 

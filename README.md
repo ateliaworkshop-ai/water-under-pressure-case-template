@@ -1,49 +1,52 @@
-# Water Under Pressure — ATELIA × ESCP Starter Kit
+# Water Under Pressure: Europe's changing water economy
 
-> This repo is your starting point. Codex should read this README first.
+This repository belongs to your team for the case. Everyone on the team has push access.
 
-## How to Get Started
+## Getting started
 
-This repo is a **template**: click **Fork** (top right), not "Use this template." Fork keeps your copy linked back to the original — that's what lets ATELIA automatically find every team's work, without anyone needing to send a link.
+Your team page on ATELIA walks you through it, with a one-minute video:
 
-Once you've forked it, add your teammates as collaborators (Settings → Collaborators on your fork), and leave the visibility as **Public** — don't switch it to Private, or we lose access to your work.
+- **In your browser (nothing to install):** open Claude Code (claude.ai/code) or Codex (chatgpt.com/codex), connect GitHub, choose this repository, and ask for what you want to build.
+- **On your own computer (Mac or Windows):** follow "Prefer to work on your own computer?" on your team page. You install the basics once, then paste two prompts into your agent: one sets everything up, one checks that your prompts reach ATELIA.
 
-## The Brief
+You need your own licence: Claude (Pro or higher) or ChatGPT (Plus or higher, for Codex). Your school may provide one.
 
-The full brief is in `WATER_Case_Brief.md`. Unlike the other case, there's no single company or fixed decision here — you choose the angle. The list of real, free public data sources you can build on is in `data/PUBLIC_SOURCES.md`.
+## Rules
 
-One-sentence summary: Europe's water stress became a visible economic story in 2026 — droughts, record-low rivers, industrial shutdown risk, and a wave of EU investment. Your job is to pick a real problem inside that story and build a tool that helps someone make a better decision about it, using real public data.
+1. **One branch per person, named after your GitHub login.** Your agent creates it for you. Never push to `main` directly, never force-push.
+2. **Your prompts are logged automatically** in `prompts/` (one file per person per day). Do not edit or delete them. They reach ATELIA when your agent pushes your branch, which it does at the end of every request.
+3. **Never paste a password, a GitHub token or an API key** into your agent or into a file. The setup never needs one. API keys for your app go in a `.env` file, which is never committed. If a key ever lands in a commit, tell ATELIA at once so it can be revoked.
+4. **Merge often** into `main` (a pull request every hour or so), so the team's work stays together.
 
-## Rule #1 — Prompt Logging Is Automatic
+## The case
 
-This repo includes an `AGENTS.md` file, which Codex reads automatically at the start of every task — you don't need to open or edit it. The first time you talk to Codex in a new conversation, it will ask for your **student ID**. Answer it, and from then on Codex logs every prompt you send it — automatically, verbatim — into `prompts/<your-id>/session-*.md`, without you doing anything else.
+- **The brief:** `WATER_Case_Brief.md`.
+- **The data:** real, free public sources listed in `data/PUBLIC_SOURCES.md`, with the ones not worth your time.
+- **In one sentence:** Europe's water stress became an economic story in 2026 (droughts, record-low rivers, industrial risk, EU investment). Pick a real problem inside it and build a tool that helps someone make a better decision, on real public data.
 
-**You don't fill this in by hand.** Your only job is to make sure that log file gets committed along with your code changes — Codex writes it, but you still need to include it when your pull request is created and merged. If a pull request only has code changes and no updated log file, that's a sign something didn't get logged.
+There is no single company and no fixed decision: you choose the angle, the user and the country.
 
-Why we're doing this: it's not to monitor you. It's what lets us understand, at the end, how you reasoned — not just what you produced. A good result reached with a clear prompt from the start isn't scored the same as a good result reached after fifteen random attempts.
+### Before you build, ask yourselves
 
-## Rule #2 — Before You Code, Ask Yourself These Questions
+ATELIA's feedback looks at these questions as much as at the app. Tick them as you go, not at the end.
 
-Check each box in this README as you go — not at the end, while you're working:
+- [ ] **Data:** what does your app pull, and from where? Is a source rate-limited, or does it need a key?
+- [ ] **Keys:** a source's key lives in `.env`, never in the code. ("We only used sources without a key" is a fine answer.)
+- [ ] **Online:** once your app is online, does any page expose a key or return raw data to any visitor?
+- [ ] **Honesty:** no estimated or invented number is presented as an official figure.
+- [ ] **Snapshots:** if you saved a copy of a dataset, is it small, and is its source written next to it?
+- [ ] **Robustness:** what happens with an unexpected input, or when the public source is down?
+- [ ] **Explainability:** can you explain to someone non-technical what the app decides, and on which real data?
+- [ ] **A real user:** does it solve a specific problem for a specific kind of person, or is it a build with no "who is this for"?
 
-- [ ] **Data**: what data does your tool actually pull, and from where? If you're using a live public API, is any of it rate-limited or does it require an API key?
-- [ ] **API keys**: if a source requires a free API key (a couple in `data/PUBLIC_SOURCES.md` do), where is it stored? Never hardcoded in a file committed to GitHub. (A valid answer: "we only used sources that don't require a key.")
-- [ ] **Deployment**: if you deployed a live demo, does any endpoint expose your API key, or return unfiltered raw data to any visitor?
-- [ ] **Attribution**: are you using real public data appropriately — no claim that estimated or invented numbers are official figures?
-- [ ] **Storage**: if you downloaded a snapshot of a dataset instead of calling it live, did you commit it to the repo? If so, is it small enough to be reasonable, and is its source clearly documented?
-- [ ] **Robustness**: what happens if the user gives an empty, inconsistent, or unexpected input? What happens if the external data source is temporarily down?
-- [ ] **Explainability**: can you explain to someone non-technical why your tool does what it does, and which real data it's actually built on?
-- [ ] **Business relevance**: does your prototype solve a real, specific problem for a real kind of user — or is it an interesting technical build with no clear "who is this for"?
+### What you hand in
 
-These questions aren't here to slow you down — they're part of what's being evaluated. A thoughtful answer to one of them is worth more than an extra feature nobody asked for.
+On your ATELIA team page, under Hand-in: the address of your running app and a short note. ATELIA writes back to the team: what held, what did not, what to try next. There is no grade.
 
-## What We Expect at the End
+## Our approach
 
-- A prototype that works, even partially, using at least one real public data source
-- Your prompt log (`prompts/<your-id>/session-*.md`) committed and up to date
-- A short paragraph below, written in business language (not technical), explaining what you built, for whom, and why
-- A live URL (Vercel or similar) if you deployed it — not required to still get credit, but expected if you did
+*To be written by the team at the end, in business language: what you built, for whom, and why.*
 
-## Our Approach
+## Need help?
 
-*[To be filled in by the team at the end.]*
+Write to contact@ateliaworkshop.ai with a screenshot.
