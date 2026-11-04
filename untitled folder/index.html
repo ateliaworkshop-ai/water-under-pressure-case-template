@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>AquaSignal · Decision desk</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#overview"><b>≈</b>Aqua<span>Signal</span></a>
+    <div class="context"><span class="city-dot"></span><strong id="header-city">Madrid</strong><small id="updated">Connecting to Open-Meteo…</small></div>
+    <nav><a href="#overview">Overview</a><a href="#indicators">Indicators</a><a href="#map">Map</a><a href="#actions">Actions</a><a href="#method">Method</a></nav>
+    <span class="status-pill"><i></i><span id="data-status">LIVE WEATHER</span></span>
+  </header>
+  <main>
+    <section class="intro">
+      <div>
+        <span class="kicker">MUNICIPAL WATER RESILIENCE / DECISION DESK</span>
+        <h1><span class="hero-line">See water conditions</span><br><em>before they escalate.</em></h1>
+        <p>AquaSignal combines public water and drought indicators into an explainable early-warning signal for municipal water managers.</p>
+      </div>
+      <div class="city-panel">
+        <label>SELECT CITY VIEW</label>
+        <div class="city-buttons" id="cities"></div>
+        <small>Weather updates from Open-Meteo · prototype indicators are marked</small>
+      </div>
+    </section>
+    <section id="overview" class="decision-grid">
+      <article class="decision-card">
+        <div class="card-head"><span class="kicker light">CURRENT DECISION SIGNAL</span><span class="confidence">PROTOTYPE MODEL</span></div>
+        <div class="decision-row">
+          <div id="risk-score" class="score">—<small>/7</small></div>
+          <div><span id="risk-level" class="level">Analysing</span><p id="recommendation-short">Loading the latest city view…</p></div>
+        </div>
+        <div id="risk-scale" class="risk-scale" aria-label="AquaSignal decision scale">
+          <span class="risk-step" data-level="Normal">Normal<small>0–1</small></span>
+          <span class="risk-step" data-level="Watch">Watch<small>2</small></span>
+          <span class="risk-step" data-level="Alert">Alert<small>3–4</small></span>
+          <span class="risk-step" data-level="Emergency">Emergency<small>5–7</small></span>
+        </div>
+        <p id="action-now" class="action-now">Action now: assessing current conditions.</p>
+        <div class="meter"><span id="risk-meter"></span></div>
+        <div class="decision-foot"><span>Normal 0–1 · Watch 2 · Alert 3–4 · Emergency 5–7</span><strong id="driver-count">— pressure points</strong></div>
+      </article>
+      <aside class="driver-card"><span class="kicker">WHAT IS DRIVING THE SIGNAL?</span><h3 id="driver-title">Loading evidence…</h3><div id="drivers" class="drivers"></div><p id="decision-explanation">Live weather and scenario evidence will appear here.</p></aside>
+    </section>
+    <section id="indicators"><div class="section-title"><div><span class="kicker">SEVEN-INDICATOR OVERVIEW</span><h2>Evidence at a glance</h2></div><span class="muted">Equal-weight scoring · 1 point per threshold</span></div><div id="indicator-grid" class="indicator-grid"></div></section>
+    <section id="map" class="map-section"><div class="section-title"><div><span class="kicker">SPATIAL DECISION CONTEXT</span><h2>Compare live weather pressure by location</h2></div><span class="badge live">INTERACTIVE · OPENSTREETMAP</span></div><div class="map-layout"><article class="panel map-panel"><div class="map-shell"><div id="risk-map" role="application" aria-label="Interactive map comparing live weather pressure across supported city views"></div><div id="map-state" class="map-state" role="status" aria-live="polite">Loading interactive map…</div></div><div class="map-footer"><span id="map-selection">Selected: Madrid</span><button id="map-reset" type="button">Reset to Madrid</button></div></article><aside class="map-insight"><span class="kicker">WHY THIS MAP MATTERS</span><h3>See where weather pressure is building.</h3><p>Every marker uses the same live signals—recent rainfall and average temperature—so managers can compare locations before opening the deeper decision view.</p><div class="map-legend"><span><i class="legend-dot low"></i>Lower weather pressure</span><span><i class="legend-dot watch"></i>One pressure signal</span><span><i class="legend-dot high"></i>Two pressure signals</span></div><div class="map-weather-head"><span class="kicker">LIVE CITY COMPARISON</span><span id="map-weather-status">Loading city views…</span></div><div id="map-city-list" class="map-city-list" aria-label="Live weather pressure by city"></div><div class="map-selected-card"><span class="kicker">SELECTED LOCATION</span><strong id="map-selected-name">Madrid</strong><small id="map-selected-detail">Spain · 40.4168, -3.7038</small><p id="map-selected-signal">Loading location signal…</p></div><small class="map-note">Weather pressure is a comparison aid, not an official drought boundary. Madrid’s official evidence remains visible in the dashboard.</small></aside></div></section>
+    <section class="analysis-grid"><article class="panel chart-panel"><div class="section-title"><div><span class="kicker">LIVE WEATHER EVIDENCE</span><h2>Rainfall · last 14 days</h2></div><span class="badge live">LIVE · OPEN-METEO</span></div><div class="chart-wrap"><div id="y-axis"><span>mm</span><span>—</span><span>—</span></div><div id="chart" class="chart"></div></div><div id="chart-labels" class="chart-labels"></div><p class="chart-note">Daily precipitation totals from the selected city. No unsupported 30-day forecast is shown.</p></article><article class="panel scenario"><div class="section-title"><div><span class="kicker">SCENARIO EXPLORER</span><h2>Test a response</h2></div><span class="badge prototype">PROTOTYPE</span></div><p class="scenario-note">Scenario simulation — does not change live source data.</p><div class="control"><label>Reservoir condition <output id="reservoir-out">Pressure</output></label><input id="reservoir" type="range" min="0" max="1" value="1"></div><div class="control"><label>Groundwater pressure <output id="groundwater-out">Elevated</output></label><input id="groundwater" type="range" min="0" max="1" value="1"></div><div class="control"><label>Consumption pressure <output id="consumption-out">Elevated</output></label><input id="consumption" type="range" min="0" max="1" value="1"></div><div class="control"><label>Official drought status <output id="official-out">Pre-alert</output></label><select id="official"><option value="normal">Normal</option><option value="pre-alert" selected>Pre-alert</option><option value="alert">Alert</option><option value="emergency">Emergency</option></select></div><div class="control"><label>Copernicus drought signal <output id="copernicus-out">Signal</output></label><input id="copernicus" type="range" min="0" max="1" value="1"></div></article></section>
+    <section id="actions" class="action-panel"><div><span class="kicker light">RECOMMENDED ACTION THIS WEEK</span><h2 id="recommended-action">Loading recommendation…</h2><p id="decision-outcome">Checking the evidence behind this recommendation.</p></div><div class="impact"><div><span>IF NO ACTION IS TAKEN</span><p id="no-action"></p></div><div><span>IF RECOMMENDATION IS FOLLOWED</span><p id="action-list"></p></div></div></section>
+    <section class="quality"><div class="section-title"><div><span class="kicker">DATA QUALITY & EXPLAINABILITY</span><h2>Why this recommendation?</h2></div><span class="muted">Prototype assumptions are never live measurements</span></div><div id="source-list" class="source-list"></div></section>
+    <section id="method" class="method"><div><span class="kicker">METHODOLOGY</span><h2>Simple enough to<br>explain in a meeting.</h2></div><div><p>AquaSignal currently uses an equal-weight prototype scoring model: each of seven indicators contributes one pressure point when its threshold is exceeded. This is designed for explainability and is not a validated hydrological forecasting model.</p><div class="thresholds"><b>Normal <i>0–1</i></b><b>Watch <i>2</i></b><b>Alert <i>3–4</i></b><b>Emergency <i>5–7</i></b></div></div></section>
+  </main>
+  <footer><span class="brand"><b>≈</b>Aqua<span>Signal</span></span><span>Decision support for water resilience teams · e263117</span></footer>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <script src="app.js"></script><script src="visual-upgrades.js"></script>
+</body>
+</html>
