@@ -1,0 +1,39 @@
+{
+  "retrieved": "2026-09-13",
+  "reservoir": {
+    "valuePct": 72.2,
+    "volumeHm3": 735.9,
+    "observed": "2026-08-01",
+    "status": "CURRENT OFFICIAL",
+    "source": "Canal de Isabel II, Situación hidrológica agosto 2026",
+    "url": "https://www.canaldeisabelsegunda.es/en/-/situacion-hidrologica-agosto-2026"
+  },
+  "consumption": {
+    "valueHm3": 307.7,
+    "period": "2026-01-01 to 2026-07-31",
+    "changePct": 9.1,
+    "observed": "2026-08-01",
+    "status": "CURRENT OFFICIAL",
+    "source": "Canal de Isabel II, July 2026 hydrological update",
+    "url": "https://www.canaldeisabelsegunda.es/en/-/situacion-hidrologica-agosto-2026"
+  },
+  "officialDrought": {
+    "status": "Normality",
+    "basin": "Tajo",
+    "unit": "UTE ES030_05 Abastecimiento de Madrid",
+    "indicator": 0.710,
+    "observed": "2026-07-31",
+    "statusLabel": "CURRENT OFFICIAL",
+    "source": "MITECO, Informe mensual de sequía y escasez agosto 2026, Anexo 3",
+    "url": "https://www.miteco.gob.es/content/dam/miteco/es/agua/temas/observatorio-nacional-de-la-sequia/2608-Informe_SE_ago.pdf"
+  },
+  "copernicusCdi": {
+    "code": 1,
+    "label": "No drought",
+    "observed": "2026-08-10",
+    "status": "OFFICIAL STATIC / MANUAL",
+    "source": "Copernicus European Drought Observatory CDI v4.1 WCS",
+    "url": "https://drought.emergency.copernicus.eu/data/wcs-service",
+    "method": "Madrid coordinate -3.7038, 40.4168 extracted from the CDI v4.1 GeoTIFF grid cell; value code 1 is interpreted as No drought per the CDI v4.1 factsheet."
+  }
+}
